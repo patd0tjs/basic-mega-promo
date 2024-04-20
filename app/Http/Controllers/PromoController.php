@@ -18,9 +18,11 @@ class PromoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function join()
+    public function join(Entries $entries)
     {
-        //
+        $entry = new Entries;
+        $entry->join();
+        return to_route('promo.join')->with('joined', 'Your entry was successfully submitted!');
     }
 
     /**
