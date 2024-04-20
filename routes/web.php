@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\PromoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', 'join')->name('join');
+
+Route::get('/join', [PromoController::class, 'index'])->name('promo.index');
+Route::post('/join', [PromoController::class, 'join'])->name('promo.join');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
